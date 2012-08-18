@@ -1,15 +1,111 @@
 <!doctype html>
 <head>
-<title>Hopper</title>
+    <title>Hopper</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="shortcut icon" href="static/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
-<body>
-<h1>Hopper</h1>
-<p>Develop web applications now.</p>
 
-<p>Hopper: A MadBox Ubuntu environment with common, useful tools for PHP and Python development, distributed
-as a VirtualBox virtual machine.</p>
 
-<img src="/static/img/hopper.jpg" alt="Rear Admiral Grace Hopper" />
+<link
+</head>
+<body data-spy="scroll">
+<div id="navbar" class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand">Hopper</a>
+      <ul class="nav">
+        <li class="active"><a href="#intro">About</a></li> 
+        <li><a href="#install">Install</a></li> 
+        <li><a href="#packages">Packages</a></li> 
+        <li><a href="#notes">Notes</a></li> 
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="content" class="container-fluid">
+  <section id="intro" class="clearfix">
+    <div id="page-title" class="row-fluid">
+      <div class="span12">
+        <h1><strong>Hopper</strong>: Develop web applications now</h1>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span4">
+        <img src="/static/img/hopper.jpg" alt="Rear Admiral Grace Hopper" />
+        <p class="caption">Rear Admiral Grace Hopper</p>
+      </div>
+      <div class="span6">
+      <p>Develop Python and PHP web applications fast with this fast, low-memory virtual machine. Hopper comes with:</p>
 
+      <ul>
+        <li><strong>Modern GUI</strong>: Dock, shadows and smooth effects.</li>
+        <li><strong>Awesome toolchain</strong>: A baseline of useful tools, like LAMP, Python, and Postgres.
+        <li><strong>Mac keybindings that don't suck</strong></li>
+        <li><strong>Low memory footprint</strong>: 512mb with browser</li>
+      </ul>
+
+      <h3>Screenshots here</h3>
+    </div>
+  </section>
+
+  <section id="install">
+    <h1>Install</h1>
+    <p>Download or run installer.</p>
+  </section>
+
+  <section id="packages">
+    <h1>Packages</h1>
+    <ul>
+      <li>ack</li>
+      <li>git</li>
+      <li>meld</li>
+      <li>mysql</li>
+      <li>postgresql</li>
+      <li>postgis</li>
+      <li>gdal</li>
+      <li>imagemagick</li>
+      <li>pip</li>
+      <li>node</li>
+      <li>npm</li>
+      <li>virtualenv</li>
+      <li>ruby</li>
+      <li>rubygems</li>
+      <li>php5</li>
+      <li>apache2</li>
+      <li>xdebug</li>
+      <li>Apanta studio</li>
+      <li>gvim + janus</li>
+      <li>qgis</li>
+      <li>LilyTerm</li>
+      <li>Pintura</li>
+      <li>Inkscape</li>
+    </ul>
+  </section>
+
+  <section id="notes">
+    <h1>Notes</h1>
+    <p>Credentials:</p>
+    <ul>
+      <li>user: <code>user</code></li>
+      <li>password: <code>password</code></li>
+    </ul>
+    <p>Not tested in Windows. Windows almost certainly needs <code>~/.Xmodmap</code> deleted for keybindings to work as expected.</p>
+    <p>How to swap cmd and ctrl in terminal?</p>
+    <p>No terminal window shadow.</p>
+  </section>
+</div>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#navbar').scrollspy({'offset': -50 });
+});
+</script>
 </body>
 </html>
