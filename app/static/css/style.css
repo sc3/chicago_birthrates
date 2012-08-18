@@ -1,0 +1,35 @@
+img { float: left; margin-right: 30px; }
+
+h1 {
+  padding-top: 50px;
+  font-size: 50px;
+  line-height: 72px;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 36px;
+  margin-bottom: 18px;
+  line-height: 36px;
+  letter-spacing: -1px;
+}
+p, li, blockquote {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+  color: inherit;
+}
+#page-title {
+  margin-bottom: 18px;
+}
+#page-title h1 {
+  font-size: 48px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+#page-title h1 strong {
+  font-size: 60px;
+}
+.caption {
+  font-size: 14px;
+  font-style: italic;
+}
