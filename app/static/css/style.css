@@ -1,9 +1,10 @@
 img { float: left; margin-right: 30px; }
 
 h1 {
-  padding-top: 50px;
-  font-size: 50px;
-  line-height: 72px;
+  padding-top: 80px;
+  font-size: 36px;
+  line-height: 36px;
+  margin-bottom: 27px;
   letter-spacing: -1px;
 }
 h2 {
@@ -18,18 +19,37 @@ p, li, blockquote {
   line-height: 27px;
   color: inherit;
 }
+#content p, #content ul { 
+  margin-bottom: 27px;
+}
+#content li { 
+  margin-bottom: 9px;
+}
 #page-title {
   margin-bottom: 18px;
 }
 #page-title h1 {
   font-size: 48px;
-  margin-bottom: 0;
+  margin-bottom: 18px;
   font-weight: 400;
 }
 #page-title h1 strong {
   font-size: 60px;
 }
-.caption {
+#screenshots h1 {
+  margin-top: -77px;
+}
+.caption, .note {
   font-size: 14px;
+  line-height: 18px;
   font-style: italic;
 }
+.download {
+  text-align: center;
+}
+.btn-download {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 700;
+}
+
