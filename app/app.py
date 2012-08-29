@@ -25,8 +25,7 @@ def index():
             key = 'Birth Rate %s' % year # Construct key name
             table_row.append( row[key] )
         table.append(table_row)
-    #import ipdb; ipdb.set_trace()
-    return render_template('index.html', table=table)
+    return render_template('index.html', table=table[:-2])
 
 if __name__ == '__main__':
     app.debug=True
