@@ -10,6 +10,56 @@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="static/js/jqplot/jquery.jqplot.min.css" />
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/excanvas.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/jquery.jqplot.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.pointLabels.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.highlighter.js"></script>
+    <script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.community-data').tablechart({
+            height: 50,
+            plotOptions: {
+                seriesColors: [ '#999999' ],
+                gridPadding : {top:0, bottom: 0, right:0, left:0},
+                legend: {
+                    show: false
+                },
+                seriesDefaults: {
+                    fill: true
+                },
+                axesDefaults: {
+                    renderer: $.jqplot.LinearAxisRenderer,
+                    tickOptions: {
+                        showTickMarks: false,
+                        formatString: '%d',
+                    }
+                },
+                axes: {
+                    yaxis: {
+                        min: {{ chart_min }},
+                        max: {{ chart_max }},
+                        numberTicks: 3
+                    },
+                    xaxis: {
+                        min: 1999,
+                        max: 2009,
+                        numberTicks: 10
+                    }
+                },
+                highlighter: {
+                    show: true,
+                    showTooltip: true,
+                    tooltipLocation: 'n'
+                }
+            }
+        });
+    });
+    </script>
 </head>
 <body>
 <div id="content" class="container-fluid">
@@ -42,54 +92,5 @@
         {% endfor %}
     </div>
 </div>
-<link rel="stylesheet" type="text/css" href="static/js/jqplot/jquery.jqplot.min.css" />
-<script type="text/javascript" src="static/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/js/jqplot/excanvas.js"></script>
-<script type="text/javascript" src="static/js/jqplot/jquery.jqplot.js"></script>
-<script type="text/javascript" src="static/js/jqplot/plugins/jqplot.pointLabels.js"></script>
-<script type="text/javascript" src="static/js/jqplot/plugins/jqplot.highlighter.js"></script>
-<script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
-<script>
-$(document).ready(function() {
-    $('.community-data').tablechart({
-        height: 50,
-        plotOptions: {
-            seriesColors: [ '#999999' ],
-            gridPadding : {top:0, bottom: 0, right:0, left:0},
-            legend: {
-                show: false
-            },
-            seriesDefaults: {
-                fill: true
-            },
-            axesDefaults: {
-                renderer: $.jqplot.LinearAxisRenderer,
-                tickOptions: {
-                    showTickMarks: false,
-                    formatString: '%d',
-                }
-            },
-            axes: {
-                yaxis: {
-                    min: {{ chart_min }},
-                    max: {{ chart_max }},
-                    numberTicks: 3
-                },
-                xaxis: {
-                    min: 1999,
-                    max: 2009,
-                    numberTicks: 10
-                }
-            },
-            highlighter: {
-                show: true,
-                showTooltip: true,
-                tooltipLocation: 'n'
-            }
-        }
-    });
-});
-</script>
 </body>
 </html>
