@@ -12,7 +12,32 @@ p, li, blockquote {
 }
 table.table {
     width:auto;
+    display: none;
 }
 table.table tbody td {
     text-align: right;
+}
+.community-area {
+    float: left;
+    width: 20%;
+    margin: 0 5% 36px 0; 
+}
+.community-area h2 {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.community-area .jqplot-xaxis, .community-area .jqplot-yaxis {
+    color: #aaa;
+}
+.community-area .jqplot-xaxis {
+    bottom: -20px !important;
+    left: 5px !important;
+}
+.community-area .jqplot-yaxis {
+    left: -15px !important;
+}
+.tablechart {
+    position: relative;
+    right: -15px;
 }
