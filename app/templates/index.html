@@ -16,29 +16,32 @@
 </head>
 <body>
 <div id="content" class="container-fluid">
-    <h1>Birth rates by community area</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Year</th>
-                {% for row in table %}
-                    <th>{{ row.0 }}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for year in range(1999, 2010) %}
-            <tr>
-                <th>{{ year }}</th>
-                {% for row in table %}
-                    <td>{{ row[year - 1998] }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="row-fluid">
+        <h1>Birth rates by community area</h1>
+        {% for row in table %}
+        <div class="community-area">
+            <h2>{{ row.0.title() }}</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Birth rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for year,rate in row[1:] %}
+                    <tr>
+                        <th>{{ year }}</th>
+                        <td>{{ rate }}</th>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/bootstrap/js/tablechart/jquery.tablechart.js"></script>
 </body>
 </html>

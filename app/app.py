@@ -23,7 +23,7 @@ def index():
         table_row = [ row['Community Area Name'], ]
         for year in range(1999, 2010):
             key = 'Birth Rate %s' % year # Construct key name
-            table_row.append( row[key] )
+            table_row.append( (year, row[key]) )
         table.append(table_row)
     return render_template('index.html', table=table[:-2])
 
