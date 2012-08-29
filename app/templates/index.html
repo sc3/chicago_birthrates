@@ -1,6 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Hopper</title>
+    <title>Chicago birth rates</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="static/css/style.css" />
     <link rel="shortcut icon" href="static/img/favicon.ico" />
@@ -9,37 +10,87 @@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-</head>
 
-
-<link
+    <link rel="stylesheet" type="text/css" href="static/js/jqplot/jquery.jqplot.min.css" />
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/excanvas.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.pointLabels.min.js"></script>
+    <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.highlighter.min.js"></script>
+    <script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.community-data').tablechart({
+            height: 50,
+            plotOptions: {
+                seriesColors: [ '#999999' ],
+                gridPadding : {top:0, bottom: 0, right:0, left:0},
+                legend: {
+                    show: false
+                },
+                seriesDefaults: {
+                    fill: true
+                },
+                axesDefaults: {
+                    renderer: $.jqplot.LinearAxisRenderer,
+                    tickOptions: {
+                        showTickMarks: false,
+                        formatString: '%d',
+                    }
+                },
+                axes: {
+                    yaxis: {
+                        min: {{ chart_min }},
+                        max: {{ chart_max }},
+                        numberTicks: 3
+                    },
+                    xaxis: {
+                        min: 1999,
+                        max: 2009,
+                        numberTicks: 10
+                    }
+                },
+                highlighter: {
+                    show: true,
+                    showTooltip: true,
+                    tooltipLocation: 'n'
+                }
+            }
+        });
+    });
+    </script>
 </head>
 <body>
 <div id="content" class="container-fluid">
-    <h1>Birthrates</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Community area</th>
-                {% for row in table %}
-                <th>{{ row.0 }}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for year in range(1999, 2010) %}
-            <tr>
-                <th>{{ year }}</th>
-                {% for row in table %}
-                <td>{{ row[year - 1998] }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="row-fluid">
+        <h1>Birth rates by community area</h1>
+        <p>Max birth rate: {{ max }} ({{ max_community.title() }}, {{ max_year }})</p>
+        <p>Min birth rate: {{ min }} ({{ min_community.title() }}, {{ min_year }})</p>
+    </div>
+    <div class="row-fluid">
+        {% for row in table %}
+        <div class="community-area">
+            <h2>{{ row.0.title() }}</h2>
+            <table class="community-data table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Birth rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for year,rate in row[1:] %}
+                    <tr>
+                        <th>{{ year }}</th>
+                        <td>{{ rate }}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-<script type="text/javascript" src="static/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
