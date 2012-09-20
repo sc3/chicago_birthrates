@@ -47,3 +47,5 @@ table.table tbody td {
 .community-area .modal .jqplot-xaxis, .community-area .modal .jqplot-yaxis {
     color: #000;
 }
+.modal-header {
+    color: #2F4F4F;
