@@ -83,7 +83,7 @@
                 {{ row.0.title() }}
                 <a href="#modal-{{ loop.index }}" data-toggle="modal">enlarge</a>
             </h2>
-            <div class="modal hide fade" id="modal-{{ loop.index }}">
+            <div class="modal hide fade" id="modal-{{ loop.index }}" data-backdrop="">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3>{{ row.0.title() }}</h3>
