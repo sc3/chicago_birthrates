@@ -21,7 +21,7 @@
     <script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
     <script>
     $(document).ready(function() {
-        $('.community-data').tablechart({
+        var options = {
             height: 50,
             plotOptions: {
                 seriesColors: [ '#999999' ],
@@ -57,7 +57,8 @@
                     tooltipLocation: 'n'
                 }
             }
-        });
+        };
+        $('.community-data').tablechart(options);
     });
     </script>
 </head>
@@ -71,7 +72,15 @@
     <div class="row-fluid">
         {% for row in table %}
         <div class="community-area">
-            <h2>{{ row.0.title() }}</h2>
+            <h2>
+                {{ row.0.title() }}
+                <a href="#modal-{{ loop.index }}" data-toggle="modal">enlarge</a>
+            </h2>
+            <div class="modal hide fade" id="modal-{{ loop.index }}">
+                <div class="modal-body">
+                    {{ row.0.title() }}
+                </div>
+            </div>
             <table class="community-data table">
                 <thead>
                     <tr>
