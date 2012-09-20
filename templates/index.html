@@ -43,12 +43,12 @@
                     yaxis: {
                         min: {{ chart_min }},
                         max: {{ chart_max }},
-                        numberTicks: 3
+                        numberTicks: 5
                     },
                     xaxis: {
                         min: 1999,
                         max: 2009,
-                        numberTicks: 10
+                        numberTicks: 8
                     }
                 },
                 highlighter: {
@@ -59,7 +59,7 @@
             }
         };
         $('.community-data').tablechart(options);
-        options.height=150;
+        options.height=200;
         options.width=500;
         $(".modal").one("shown",function() {
             var community_area = $(this).parent();
