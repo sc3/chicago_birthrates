@@ -12,4 +12,5 @@ setup(
     description= 'Chicago birth rates, 1999-2009.',
     long_description=open('README.md').read(),
     zip_safe=False,
+    include_package_data=True
 )
