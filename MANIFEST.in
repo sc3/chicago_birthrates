@@ -1,3 +1,3 @@
 include *.md
-recursive-include chicago_birthrates/static 
-recursive-include chicago_birthrates/templates
+recursive-include chicago_birthrates/static *.css *.js
+recursive-include chicago_birthrates/templates *.html
