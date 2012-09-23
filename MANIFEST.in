@@ -1,0 +1,3 @@
+include *.md
+recursive-include chicago_birthrates/static 
+recursive-include chicago_birthrates/templates
