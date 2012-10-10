@@ -5,7 +5,7 @@ h1 {
   letter-spacing: -1px;
 }
 p, li, blockquote {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: 200;
   line-height: 27px;
   color: inherit;
@@ -41,3 +41,12 @@ table.table tbody td {
     position: relative;
     right: -15px;
 }
+.modal .tablechart {
+    right: -28px;
+}
+.community-area .modal .jqplot-xaxis, .community-area .modal .jqplot-yaxis {
+    color: #000;
+}
+.modal-header {
+    color: #2F4F4F;
+    background-color: #EE7600;
