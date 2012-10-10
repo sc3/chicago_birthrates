@@ -5,9 +5,9 @@ h1 {
   letter-spacing: -1px;
 }
 p, li, blockquote {
-  font-size: 27px;
+  font-size: 18px;
   font-weight: 200;
-  line-height: 27px;
+  line-height: 24px;
   color: inherit;
 }
 table.table {
@@ -19,8 +19,8 @@ table.table tbody td {
 }
 .community-area {
     float: left;
-    width: 20%;
-    margin: 0 5% 36px 0; 
+    width: 30%;
+    margin: 0 3% 36px 0; 
 }
 .community-area h2 {
     font-size: 18px;
@@ -47,6 +47,11 @@ table.table tbody td {
 .community-area .modal .jqplot-xaxis, .community-area .modal .jqplot-yaxis {
     color: #000;
 }
-.modal-header {
-    color: #2F4F4F;
-    background-color: #EE7600;
+.modal-body {
+  min-height: 320px;
+  max-height: 800px;
+}
+.modal {
+  width: 700px;
+  left: 43%;
+}

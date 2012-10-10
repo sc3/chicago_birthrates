@@ -24,7 +24,7 @@
         var options = {
             height: 50,
             plotOptions: {
-                seriesColors: [ '#9999ff' ],
+                seriesColors: [ '#2b60de' ],
                 gridPadding : {top:0, bottom: 0, right:0, left:0},
                 legend: {
                     show: false
@@ -59,12 +59,16 @@
             }
         };
         $('.community-data').tablechart(options);
-        options.height=200;
-        options.width=500;
+        options.height=300;
+        options.width=600;
+        options.plotOptions.seriesDefaults.fill = false;
+        options.plotOptions.axes.xaxis.min = 1998;
+        options.plotOptions.axes.xaxis.max = 2010;
+        options.plotOptions.axes.xaxis.numberTicks = 10;
         $(".modal").one("shown",function() {
             var community_area = $(this).parent();
             var table = community_area.find("table").clone();
-            table.appendTo($(this)).tablechart(options);
+            table.appendTo($(this).find('.modal-body')).tablechart(options);
         });
     });
     </script>
@@ -87,16 +91,14 @@
         <div class="community-area">
             <h2>
                 {{ row.0.title() }}
-                <a href="#modal-{{ loop.index }}" data-toggle="modal">enlarge</a>
+                <a href="#modal-{{ loop.index }}" class="btn" data-toggle="modal"><i class="icon icon-search"></i> Enlarge</a>
             </h2>
             <div class="modal hide fade" id="modal-{{ loop.index }}" data-backdrop="">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3>{{ row.0.title() }}</h3>
                 </div>
-                <div class="modal-body">
-
-                </div>
+                <div class="modal-body"></div>
             </div>
             <table class="community-data table">
                 <thead>
