@@ -17,15 +17,48 @@ table.table {
 table.table tbody td {
     text-align: right;
 }
+.data-list {
+    float: left;
+    width: 38%;
+    -webkit-column-count: 2; 
+    -moz-column-count: 2; 
+}
+.data-list dl {
+    margin: 0 0 4px 0;
+}
+.data-list dl:hover {
+    background-color: #dedede;
+}
+.data-list dl dt, .data-list dl dd {
+    display: inline;
+}
+.data-list dl dt {
+    font-weight: normal;
+    color: #888;
+}
+.data-list dl dd {
+    color: #000;
+}
+.tablechart {
+    margin-top: 5px;
+    width: 50%;
+    margin-left: -30px;
+    float: right; 
+}
 .community-area {
     float: left;
-    width: 30%;
-    margin: 0 3% 36px 0; 
+    width: 46%;
+    margin: 0 4% 36px 0; 
 }
 .community-area h2 {
     font-size: 18px;
-    line-height: 22px;
+    line-height: 30px;
     margin-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+.community-area h2 a {
+    float: right;
+    padding: 3px 7px; 
 }
 .community-area .jqplot-xaxis, .community-area .jqplot-yaxis {
     color: #aaa;
@@ -35,14 +68,14 @@ table.table tbody td {
     left: 5px !important;
 }
 .community-area .jqplot-yaxis {
-    left: -15px !important;
+    left: -28px !important;
 }
 .tablechart {
     position: relative;
-    right: -15px;
+    right: 10px;
 }
 .modal .tablechart {
-    right: -28px;
+    top: -10px;
 }
 .community-area .modal .jqplot-xaxis, .community-area .modal .jqplot-yaxis {
     color: #000;

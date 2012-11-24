@@ -22,9 +22,9 @@
     <script>
     $(document).ready(function() {
         var options = {
-            height: 50,
+            height: 110,
             plotOptions: {
-                seriesColors: [ '#2b60de' ],
+                seriesColors: [ '#0088cc' ],
                 gridPadding : {top:0, bottom: 0, right:0, left:0},
                 legend: {
                     show: false
@@ -41,20 +41,23 @@
                 },
                 axes: {
                     yaxis: {
-                        min: {{ chart_min }},
+                        min: 0, 
                         max: {{ chart_max }},
-                        numberTicks: 5
+                        numberTicks: 5,
+                        tickOptions: {
+                            formatString: '%.1f',
+                        }
                     },
                     xaxis: {
                         min: 1999,
                         max: 2009,
-                        numberTicks: 8
+                        numberTicks: 10
                     }
                 },
                 highlighter: {
                     show: true,
                     showTooltip: true,
-                    tooltipLocation: 'n'
+                    tooltipLocation: 'n',
                 }
             }
         };
@@ -102,6 +105,15 @@
                 </div>
                 <div class="modal-body"></div>
             </div>
+            <div class="data-list">
+            {% for year,rate in row[1:] %}
+            <dl>
+                <dt>{{ year }}</dt>
+                <dd>{{ rate }}</dd>
+            </dl>
+            {% endfor %}
+            </div>
+
             <table class="community-data table">
                 <thead>
                     <tr>
