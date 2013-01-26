@@ -4,9 +4,12 @@
     <title>Chicago birth rates</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+   
+    <!-- From Matt (1/26/13): Added the Filtrify plugin to filter data. 
+		 Filters using the data-* attribute. Work in progress.  -->
     
+    <!-- Calling Filtrify stylesheets -->
     <link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/filtrify.css" />
-    <!--<link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/style.css" />-->
     <link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/sunburst.css" />
     
     <link rel="shortcut icon" href="static/img/favicon.ico" />
@@ -29,7 +32,6 @@
     <script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
     
     <!--Setup to link to Filtrify-->
-    <!--<script src="https://github.com/luis-almeida/filtrify.git"></script>-->
     <script src="http://luis-almeida.github.com/filtrify/js/filtrify.js"></script>
     
     
@@ -107,7 +109,7 @@
     
     
     
-    </script>
+</script>
     	
 	
 <div id="content" class="container-fluid">
@@ -130,8 +132,12 @@
         <hr />
     </div>
     
+    <!-- Holds the Filtrify results. Still needs formatting. The "year"
+         category is intentionally blank for the time being to offer some
+         margin padding. -->
     <div id="placeHolder"></div>
     
+    <!-- The "container" ID is used to tell what data is to be filtered. -->
     <div class="row-fluid" id="container">
         {% for row in table %}
                      
