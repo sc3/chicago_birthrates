@@ -4,6 +4,11 @@
     <title>Chicago birth rates</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/filtrify.css" />
+    <!--<link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/style.css" />-->
+    <link rel="stylesheet" type="text/css" href="http://luis-almeida.github.com/filtrify/css/sunburst.css" />
+    
     <link rel="shortcut icon" href="static/img/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -12,6 +17,9 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="static/js/jqplot/jquery.jqplot.min.css" />
+    
+    
+    
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="static/js/jqplot/excanvas.js"></script>
@@ -19,6 +27,12 @@
     <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.pointLabels.min.js"></script>
     <script type="text/javascript" src="static/js/jqplot/plugins/jqplot.highlighter.min.js"></script>
     <script type="text/javascript" src="static/js/tablechart/jquery.tablechart.js"></script>
+    
+    <!--Setup to link to Filtrify-->
+    <!--<script src="https://github.com/luis-almeida/filtrify.git"></script>-->
+    <script src="http://luis-almeida.github.com/filtrify/js/filtrify.js"></script>
+    
+    
     <script>
     $(document).ready(function() {
         var options = {
@@ -75,8 +89,27 @@
         });
     });
     </script>
+    
+    
+    
+    
+    
 </head>
 <body>
+	
+<!--Calling the Filtrify plugin-->	
+<script type="text/javascript">
+    
+    $(function()
+		{
+			$.filtrify("container", "placeHolder");
+		});
+    
+    
+    
+    </script>
+    	
+	
 <div id="content" class="container-fluid">
     <div class="row-fluid">
         <h1>Chicago birth rates by community area, 1999-2009</h1>
@@ -96,14 +129,18 @@
         <p>Min birth rate: {{ min }} ({{ min_community.title() }}, {{ min_year }})</p>
         <hr />
     </div>
-    <div class="row-fluid">
+    
+    <div id="placeHolder"></div>
+    
+    <div class="row-fluid" id="container">
         {% for row in table %}
-        <div class="community-area">
+                     
+        <div class="community-area" data-year="{{ year }}" data-name="{{ row.0.title() }}">
             <h2>
                 {{ row.0.title() }}
                 <a href="#modal-{{ loop.index }}" class="btn" data-toggle="modal"><i class="icon icon-search"></i> Enlarge</a>
             </h2>
-            <div class="modal hide fade" id="modal-{{ loop.index }}" data-backdrop="">
+            <div class="modal hide fade" id="modal-{{ loop.index }}">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3>{{ row.0.title() }}</h3>
@@ -139,5 +176,8 @@
         {% endfor %}
     </div>
 </div>
+
+
+
 </body>
 </html>
